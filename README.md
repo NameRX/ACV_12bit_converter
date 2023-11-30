@@ -1,15 +1,15 @@
-# Adobe ACV to Android TV Panel 12-bit Gamma Curves Converter
+# Adobe *.acv to Android TV Panel 12-bit Gamma Curves Converter
 
-This project is a Python application designed for graphical visualization and conversion of Adobe ACV files commonly used to store tone curves for image processing. It includes a main script that reads an ACV file, plots the curve data, and converts it into a format suitable for Android TV panel calibration.
+This project is a Python application designed for graphical visualization and conversion of Adobe ACV files commonly used to store tone curves for image processing. It includes a main script that reads an ACV file, draws curves plot, and converts curves data into a format suitable for Android TV panel calibration, stored in ini file.
 
 <img src="https://github.com/NameRX/ACV_12bit_converter/blob/main/Adobe_AE_curves_screenshot.png" height="520" alt="Screenshot of Adobe_curves"> <img src="https://github.com/NameRX/ACV_12bit_converter/blob/main/ACV_12bit_converter_screenshot.png" height="520" alt="Screenshot of ACV conversion">
 
 
 ## Features
 
-- **ACV Curve Plotting**: The main script (`ACV_12bit_converter.py`) plots the curves from the ACV file, showing Luma and the RGB channels.
-- **Conversion to Panel Format**: The curves are converted into a 12-bit hexadecimal format compliant with the requirements of Android TV's panel calibration configuration.
-- **Gamma Curve Review**: An additional script (`12bit_gamma_plotter.py`) provides functionality to review the converted gamma curves or visualize original gamma curves from an Android TV panel ini file.
+- **ACV Curve Plotting**: The main script (`ACV_12bit_converter.py`) plots the curves from the ACV file, showing input Luma and RGB curves and also calculated combined Luma + RGB curves.
+- **Conversion to Panel Format**: The curves are converted into a 12-bit hexadecimal format compliant with the requirements of Android TV's panel calibration configuration, this data is stored in `ini` file, for example:  `/vendor/tvconfig/config/panel/FullHD_CMO216_H1L01.ini`.
+- **Gamma Curve Review**: An additional script (`12bit_gamma_plotter.py`) provides functionality to review the converted gamma curves or visualize original gamma curves from an Android TV panel 'ini' file.
 
 ## Usage
 
