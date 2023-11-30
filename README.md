@@ -1,6 +1,6 @@
 # Adobe *.acv to Android TV Panel 12-bit Gamma Curves Converter
 
-This project is a Python application designed for graphical visualization and conversion of Adobe ACV files commonly used to store tone curves for image processing. It includes a main script that reads an `*.acv` file, draws curves plot, and converts curves data into a format suitable for Android TV panel calibration. And an additional script, that decodes 12bit HEX `gamma_table_x` values and draws a plot with RGB curves.
+This project is a Python application designed for graphical visualization and conversion of Adobe ACV files. It includes a main script that reads an `*.acv` file, draws curves plot, and converts curves data into a format suitable for Android TV panel calibration. And an additional script, that decodes 12bit HEX `gamma_table_x` values and draws a plot with RGB curves.
 
 <img src="https://github.com/NameRX/ACV_12bit_converter/blob/main/Adobe_AE_curves_screenshot.png" height="520" alt="Screenshot of Adobe_curves"> <img src="https://github.com/NameRX/ACV_12bit_converter/blob/main/ACV_12bit_converter_screenshot.png" height="520" alt="Screenshot of ACV conversion">
 
@@ -85,7 +85,7 @@ To upload and download system files to an Android device, you may need proper fi
   
   `m_pPanelName = "/vendor/tvconfig/config/panel/FullHD_CMO216_H1L01.ini"`
   
-- Download the *.ini file and make a backup. Open it in a text editor, look through it, and find the text segment:
+- Download the panel *.ini file and make a backup. Open it in a text editor, look through it, and find the text segment:
 ```ini
 [gamma_table_0]
 parameter_r = \
@@ -93,7 +93,7 @@ parameter_r = \
 0x40,0x00,0x01,0xD8,0x02,0x03,0x61,0x05,0x06, \
 .....
 ```
-- Carefully replace the original values for `parameter_r`, `parameter_g`, and `parameter_b` with the desired gamma tables under each `[gamma_table_x]`. For my device, I replaced the values four times, once for each `[gamma_table_x]`.
+- Carefully replace the original values for `parameter_r`, `parameter_g`, and `parameter_b` with the desired gamma tables under each `[gamma_table_x]`. For my device, I replaced `[gamma_table_x]` values 4 times.
 - Save the file, upload it to the device by replacing the existing one, and reboot the device.
 
 ## FAQ - Frequently Asked Questions
