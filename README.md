@@ -1,28 +1,29 @@
 # Adobe *.acv to Android TV Panel 12-bit Gamma Curves Converter
 
-This project is a Python application designed for graphical visualization and conversion of Adobe ACV files commonly used to store tone curves for image processing. It includes a main script that reads an ACV file, draws curves plot, and converts curves data into a format suitable for Android TV panel calibration, stored in ini file.
+This project is a Python application designed for graphical visualization and conversion of Adobe ACV files commonly used to store tone curves for image processing. It includes a main script that reads an `*.acv` file, draws curves plot, and converts curves data into a format suitable for Android TV panel calibration. And an additional script, that decodes 12bit HEX `gamma_table_x` values and draws a plot with RGB curves.
 
 <img src="https://github.com/NameRX/ACV_12bit_converter/blob/main/Adobe_AE_curves_screenshot.png" height="520" alt="Screenshot of Adobe_curves"> <img src="https://github.com/NameRX/ACV_12bit_converter/blob/main/ACV_12bit_converter_screenshot.png" height="520" alt="Screenshot of ACV conversion">
 
 
 ## Features
 
-- **ACV Curve Plotting**: The main script (`ACV_12bit_converter.py`) plots the curves from the ACV file, showing input Luma and RGB curves and also calculated combined Luma + RGB curves.
-- **Conversion to Panel Format**: The curves are converted into a 12-bit hexadecimal format compliant with the requirements of Android TV's panel calibration configuration, this data is stored in `ini` file, for example:  `/vendor/tvconfig/config/panel/FullHD_CMO216_H1L01.ini`.
-- **Gamma Curve Review**: An additional script (`12bit_gamma_plotter.py`) provides functionality to review the converted gamma curves or visualize original gamma curves from an Android TV panel 'ini' file.
+- **ACV Curve Plotting**: The main script (`ACV_12bit_converter.py`) plots the curves from the ACV file, which shows input Luma and RGB curves, and also calculates combined Luma + RGB curves.
+- **Conversion to Panel Format**: The curves are converted into a 12-bit hexadecimal format compliant with the requirements of Android TV's panel calibration configuration. This data is stored in an `ini` file, for example: `/vendor/tvconfig/config/panel/FullHD_CMO216_H1L01.ini`.
+- **Gamma Curve Review**: An additional script (`12bit_gamma_plotter.py`) provides functionality to review the converted gamma curves or to visualize the original gamma curves from an Android TV panel `ini` file.
 
 ## Usage
 
 1. **ACV to 12-bit Converter (`ACV_12bit_converter.py`):**
-    - Run the script in a Python environment with the required dependencies installed.
+    - Run the script or the corresponding executable.
     - Use the graphical interface to open an `.acv` file.
     - Observe the plotted gamma curves for the Luma and RGB channels.
-    - The output 12-bit gamma tables for Red, Green, and Blue channels are displayed in the text field and can be copied for use in panel calibration configurations.
+    - The output 12-bit gamma tables for the Red, Green, and Blue channels are displayed in the text field. They can be copied for use in panel calibration configurations.
 
 2. **12-bit Gamma Plotter (`12bit_gamma_plotter.py`):**
-    - Run the script to initiate the graphical tool for plotting gamma curves.
-    - Paste the 12-bit gamma parameters for the Red, Green, and Blue channels into the text area.
+    - Run the script or the corresponding executable to initiate the graphical tool for plotting gamma curves.
+    - Paste the 12-bit gamma parameters for the Red, Green, and Blue channels into the text area provided.
     - Press the "Update Plot" button to visualize the curves.
+
 
 ## Downloads
 
@@ -68,30 +69,40 @@ parameter_b = \
 ;
 ```
 
-This format is also used as input by the `12bit_gamma_plotter.py` script.
+This format is also used as input by the `12bit_gamma_plotter.py` script, that could be usefull to look through original curve from `*.ini` file.
 
 <img src="https://github.com/NameRX/ACV_12bit_converter/blob/main/12bit_gamma_plotter_screenshot.png" height="600" alt="Screenshot of gamma curve plotting">
 
-## Modifying Android panel .ini file
-To upload and download system files to Android device you may need propper filesystem permissions (root), also you should enable Developer mode. I used [ADB AppControl](https://adbappcontrol.com/) to do all the manipulations.
+## Modifying Android Panel .ini File
 
-- Find your device panel *.ini file location. Path to it could be found in `Customer_1.ini` file located here, for example:
- 
+To upload and download system files to an Android device, you may need proper file system permissions (root access), and you should also enable Developer Mode. I used [ADB AppControl](https://adbappcontrol.com/) to perform all the manipulations.
+
+- Locate your device's panel *.ini file. The path to it can be found in the `Customer_1.ini` file, which is located here, for example:
+
   `/tvconfig/config/model/Customer_1.ini`
   
-  Open in text editor (I recommend using [Sublime Text](https://www.sublimetext.com/)) and find `m_pPanelName`, for example:
+- Open it in a text editor (I recommend using [Sublime Text](https://www.sublimetext.com/)) and find the `m_pPanelName` entry. For example:
   
   `m_pPanelName = "/vendor/tvconfig/config/panel/FullHD_CMO216_H1L01.ini"`
-- Download it, make a backup. Open in text editor, look though and find this text:
-```
+  
+- Download the *.ini file and make a backup. Open it in a text editor, look through it, and find the text segment:
+```ini
 [gamma_table_0]
 parameter_r = \
 { \
 0x40,0x00,0x01,0xD8,0x02,0x03,0x61,0x05,0x06, \
 .....
 ```
-- Carefully replace original values for parameter_r, parameter_g, parameter_b for desired gamma tables `[gamma_table_x]`. For my device I replaced values 4 times for each `[gamma_table_x]`
-- Upload file to device and reboot.
+- Carefully replace the original values for `parameter_r`, `parameter_g`, and `parameter_b` with the desired gamma tables under each `[gamma_table_x]`. For my device, I replaced the values four times, once for each `[gamma_table_x]`.
+- Save the file, upload it to the device by replacing the existing one, and reboot the device.
+
+## FAQ - Frequently Asked Questions
+
+### Q1: Curves shown in the script don't exactly match the curves in the Adobe application.
+**A:** Try adding more points before saving the *.acv file. Adobe uses its own interpolation method for curve points.
+
+### Q2: I replaced the file on my Android device, and there are no changes in image quality.
+**A:** Try to change the Picture mode and Gamma settings back and forth if they are present. If that doesn't work, double-check the panel file location.
 
 ## Contributing
 
