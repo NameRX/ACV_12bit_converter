@@ -2,8 +2,7 @@
 
 This project is a Python application designed for graphical visualization and conversion of Adobe ACV files commonly used to store tone curves for image processing. It includes a main script that reads an ACV file, plots the curve data, and converts it into a format suitable for Android TV panel calibration.
 
-![Screenshot of Adobe_curves](https://github.com/NameRX/ACV_12bit_converter/blob/main/Adobe_AE_curves_screenshot.png)
-![Screenshot of ACV conversion](https://github.com/NameRX/ACV_12bit_converter/blob/main/ACV_12bit_converter_screenshot.png)
+<img src="https://github.com/NameRX/ACV_12bit_converter/blob/main/Adobe_AE_curves_screenshot.png" height="600" alt="Screenshot of Adobe_curves"> <img src="https://github.com/NameRX/ACV_12bit_converter/blob/main/ACV_12bit_converter_screenshot.png" height="600" alt="Screenshot of ACV conversion">
 
 
 ## Features
@@ -66,7 +65,8 @@ parameter_b = \
 ```
 
 This format is also used as input by the `12bit_gamma_plotter.py` script.
-![Screenshot of gamma curve plotting](https://github.com/NameRX/ACV_12bit_converter/blob/main/12bit_gamma_plotter_screenshot.png)
+
+<img src="https://github.com/NameRX/ACV_12bit_converter/blob/main/12bit_gamma_plotter_screenshot.png" height="600" alt="Screenshot of gamma curve plotting">
 
 ## Contributing
 
