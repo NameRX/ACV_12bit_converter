@@ -1,4 +1,4 @@
-# ACV to Android TV Panel 12-bit Gamma Converter
+# Adobe ACV to Android TV Panel 12-bit Gamma Curves Converter
 
 This project is a Python application designed for graphical visualization and conversion of Adobe ACV files commonly used to store tone curves for image processing. It includes a main script that reads an ACV file, plots the curve data, and converts it into a format suitable for Android TV panel calibration.
 
