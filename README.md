@@ -107,3 +107,11 @@ parameter_r = \
 ## Contributing
 
 Contributions to the project are welcome!
+
+## Author
+
+- **Andrey Voskresensky** - RailwayFX
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE.md file for details
