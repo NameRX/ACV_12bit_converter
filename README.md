@@ -24,7 +24,11 @@ This project is a Python application designed for graphical visualization and co
     - Paste the 12-bit gamma parameters for the Red, Green, and Blue channels into the text area.
     - Press the "Update Plot" button to visualize the curves.
 
-## Installation
+## Downloads
+
+You can download windows executable builds in [Releases](https://github.com/NameRX/ACV_12bit_converter/releases) section.
+
+## Manual Installation and Running
 
 To set up the project, ensure you have [Python](https://www.python.org/downloads/) installed ([3.12.0](https://www.python.org/downloads/release/python-3120/) works well on Windows 10) along with the following dependencies:
 
@@ -67,6 +71,27 @@ parameter_b = \
 This format is also used as input by the `12bit_gamma_plotter.py` script.
 
 <img src="https://github.com/NameRX/ACV_12bit_converter/blob/main/12bit_gamma_plotter_screenshot.png" height="600" alt="Screenshot of gamma curve plotting">
+
+## Modifying Android panel .ini file
+To upload and download system files to Android device you may need propper filesystem permissions (root), also you should enable Developer mode. I used [ADB AppControl](https://adbappcontrol.com/) to do all the manipulations.
+
+- Find your device panel *.ini file location. Path to it could be found in `Customer_1.ini` file located here, for example:
+ 
+  `/tvconfig/config/model/Customer_1.ini`
+  
+  Open in text editor (I recommend using [Sublime Text](https://www.sublimetext.com/)) and find `m_pPanelName`, for example:
+  
+  `m_pPanelName = "/vendor/tvconfig/config/panel/FullHD_CMO216_H1L01.ini"`
+- Download it, make a backup. Open in text editor, look though and find this text:
+```
+[gamma_table_0]
+parameter_r = \
+{ \
+0x40,0x00,0x01,0xD8,0x02,0x03,0x61,0x05,0x06, \
+.....
+```
+- Carefully replace original values for parameter_r, parameter_g, parameter_b for desired gamma tables `[gamma_table_x]`. For my device I replaced values 4 times for each `[gamma_table_x]`
+- Upload file to device and reboot.
 
 ## Contributing
 
