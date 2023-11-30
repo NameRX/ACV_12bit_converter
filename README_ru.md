@@ -104,4 +104,4 @@ parameter_r = \
 
 ## Участие в проекте
 
-Любые вклады в проект приветствуются!</pre><br><br><form method=post>Вопрос:<br><textarea name=q cols=150 rows=60></textarea><br><input type=submit></form>
+Любые вклады в проект приветствуются!
