@@ -1,6 +1,6 @@
 # Adobe *.acv to Android TV Panel *.ini Gamma Table Converter
 
-This project is designed for graphical visualization and conversion of Adobe ACV files into Android gamma panel format. It includes a main script that reads an `*.acv` file, draws curves plot, and converts curves data into a format suitable for Android TV panel calibration. And an additional script, that decodes 12bit HEX `gamma_table_x` values, draws a plot with RGB curves and exports them in AMP format.
+This project is designed for graphical visualization and conversion of Adobe ACV files into Android gamma panel format. It includes a main script that reads an `*.acv` file, draws curves plot, and converts curves data into a format suitable for Android TV panel *.ini file. And an additional script, that decodes 12bit HEX `gamma_table_x` values, draws a plot with RGB curves and exports them in AMP format.
 
 <img src="https://github.com/NameRX/ACV_12bit_converter/blob/main/Adobe_AE_curves_screenshot.png" height="520" alt="Screenshot of Adobe_curves"> <img src="https://github.com/NameRX/ACV_12bit_converter/blob/main/ACV_12bit_converter_screenshot.png" height="520" alt="Screenshot of ACV conversion">
 
