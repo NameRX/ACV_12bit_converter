@@ -1,6 +1,6 @@
 # Adobe *.acv to Android TV Panel 12-bit Gamma Curves Converter
 
-This project is a Python application designed for graphical visualization and conversion of Adobe ACV files. It includes a main script that reads an `*.acv` file, draws curves plot, and converts curves data into a format suitable for Android TV panel calibration. And an additional script, that decodes 12bit HEX `gamma_table_x` values and draws a plot with RGB curves.
+This project is a Python application designed for graphical visualization and conversion of Adobe ACV files. It includes a main script that reads an `*.acv` file, draws curves plot, and converts curves data into a format suitable for Android TV panel calibration. And an additional script, that decodes 12bit HEX `gamma_table_x` values, draws a plot with RGB curves and exports them in AMP format.
 
 <img src="https://github.com/NameRX/ACV_12bit_converter/blob/main/Adobe_AE_curves_screenshot.png" height="520" alt="Screenshot of Adobe_curves"> <img src="https://github.com/NameRX/ACV_12bit_converter/blob/main/ACV_12bit_converter_screenshot.png" height="520" alt="Screenshot of ACV conversion">
 
@@ -10,6 +10,7 @@ This project is a Python application designed for graphical visualization and co
 - **ACV Curve Plotting**: The main script (`ACV_12bit_converter.py`) plots the curves from the ACV file, which shows input Luma and RGB curves, and also calculates combined Luma + RGB curves.
 - **Conversion to Panel Format**: The curves are converted into a 12-bit hexadecimal format compliant with the requirements of Android TV's panel calibration configuration. This data is stored in an `ini` file, for example: `/vendor/tvconfig/config/panel/FullHD_CMO216_H1L01.ini`.
 - **Gamma Curve Review**: An additional script (`12bit_gamma_plotter.py`) provides functionality to review the converted gamma curves or to visualize the original gamma curves from an Android TV panel `ini` file.
+- **Gamma Curve Export**: A script (`12bit_gamma_plotter.py`) can also export gamma table to Adobe *.amp format.
 
 ## Usage
 
@@ -23,6 +24,7 @@ This project is a Python application designed for graphical visualization and co
     - Run the script or the corresponding executable to initiate the graphical tool for plotting gamma curves.
     - Paste the 12-bit gamma parameters for the Red, Green, and Blue channels into the text area provided.
     - Press the "Update Plot" button to visualize the curves.
+    - Press the "Export AMP File" button to export curves to *.amp format.
 
 
 ## Downloads
@@ -110,7 +112,7 @@ Contributions to the project are welcome!
 
 ## Author
 
-- **Andrey Voskresensky** - RailwayFX
+- **Andrey Voskresensky** - RailwayFX (aka NameRX)
 
 ## License
 
