@@ -1,4 +1,4 @@
-# Adobe *.acv to Android TV Panel 12-bit Gamma Curves Converter
+# Adobe *.acv to Android TV Panel *.ini Gamma Table Converter
 
 This project is a Python application designed for graphical visualization and conversion of Adobe ACV files. It includes a main script that reads an `*.acv` file, draws curves plot, and converts curves data into a format suitable for Android TV panel calibration. And an additional script, that decodes 12bit HEX `gamma_table_x` values, draws a plot with RGB curves and exports them in AMP format.
 
